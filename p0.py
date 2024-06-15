@@ -55,3 +55,19 @@ npOutputMultiNeurons = np.dot(weightsAll, inputs) + biasAll
 # 3 by 4 matrix dot 4 by 1 matrix = 3 by 1 matrix
 # np.dot(weightsAll, inputs) = [np.dot(weights1, inputs), np.dot(weights2, inputs), np.dot(weights3, inputs)]
 print(npOutputMultiNeurons, np.shape(weightsAll), np.shape(np.array(weightsAll).T))
+
+inputsMany = [[1, 2, 3, 2.5], [2.0, 5.0, -1.0, 2.0], [-1.5, 2.7, 3.3, -0.8]]
+layer1Output = np.dot(inputsMany, np.array(weightsAll).T) + biasAll
+
+print(layer1Output)
+
+# another layer of neurons
+weightsAll2 = [
+    [0.1, -0.14, 0.5],
+    [-0.5, 0.12, -0.33],
+    [-0.44, 0.73, -0.13],
+]
+biasAll2 = [-1, 2, -0.5]
+
+layer2Output = np.dot(layer1Output, np.array(weightsAll2).T) + biasAll2
+print(layer2Output)
